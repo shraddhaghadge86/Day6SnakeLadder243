@@ -12,8 +12,7 @@ public class SnakeLadder {
         return dieValue ;
     }
     public static void main(String[] args) {
-
-        int roolldie = roolldie();
+        int rolldie = roolldie();
         int presentPlayerPosition = 0;
 
         while ( presentPlayerPosition <= Ending_Position_Of_Player){
@@ -21,11 +20,11 @@ public class SnakeLadder {
             int checkPosition= (int)Math.floor(Math.random()*10)%3;
             switch (checkPosition){
                 case snake:
-                    currentPosition = roolldie-snake;
+                    currentPosition = rolldie-snake;
                     System.out.println("player is on snake " + currentPosition);
                     break;
                 case  ladder:
-                    currentPosition = ladder+roolldie;
+                    currentPosition = ladder+rolldie;
                     System.out.println("player is on Ladder " + currentPosition);
                     break;
                 default:
@@ -35,6 +34,12 @@ public class SnakeLadder {
             presentPlayerPosition = presentPlayerPosition + currentPosition;
             System.out.println("Player" + presentPlayerPosition);
         }
+        if (presentPlayerPosition > 100) {
+            int temp = presentPlayerPosition - 100;
+            presentPlayerPosition = presentPlayerPosition - temp;
+            System.out.println("Win the game player position is : " + presentPlayerPosition);
+        } else
+            System.out.println("Win the game player position is : " + presentPlayerPosition);
     }
 }
 
